@@ -1,7 +1,5 @@
 ## Functional Programming Constructs in Golang
 
-package functional
-
 ### FUNCTIONS
 
 ```go
