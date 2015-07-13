@@ -18,3 +18,20 @@ func TestMap(t *testing.T) {
 		}
 	}
 }
+
+func TestFilter(t *testing.T) {
+	inputList := []int{1, 2, 3}
+
+	modulotwo := func(x interface{}) bool {
+		return x.(int)%2 == 0
+	}
+
+	expected := []int{2}
+	actual := Filter(inputList, modulotwo)
+
+	for i, e := range expected {
+		if e != actual[i] {
+			t.Errorf("expected %v != actual %v", expected, actual)
+		}
+	}
+}

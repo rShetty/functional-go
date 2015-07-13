@@ -13,3 +13,17 @@ func Map(array interface{}, fn mapFunc) []interface{} {
 	}
 	return outputArray
 }
+
+type filterFunc func(interface{}) bool
+
+// Filter filters the array based on the predicate
+func Filter(array interface{}, fn filterFunc) []interface{} {
+	val := reflect.ValueOf(array)
+	var outputArray []interface{}
+	for i := 0; i < val.Len(); i++ {
+		if fn(val.Index(i).Interface()) {
+			outputArray = append(outputArray, val.Index(i).Interface())
+		}
+	}
+	return outputArray
+}
