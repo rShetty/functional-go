@@ -35,3 +35,19 @@ func TestFilter(t *testing.T) {
 		}
 	}
 }
+
+func TestFoldl(t *testing.T) {
+	inputList := []int{1, 2, 3}
+
+	funcFoldl := func(x interface{}, acc interface{}) interface{} {
+		return x.(int) + acc.(int)
+	}
+
+	expected := 6
+	accumulator := 0
+	actual := Foldl(inputList, funcFoldl, accumulator)
+
+	if expected != actual {
+		t.Errorf("expected %v != actual %v", expected, actual)
+	}
+}

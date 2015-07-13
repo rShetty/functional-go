@@ -27,3 +27,15 @@ func Filter(array interface{}, fn filterFunc) []interface{} {
 	}
 	return outputArray
 }
+
+type foldrFunc func(interface{}, interface{}) interface{}
+
+// Fold left the array values (reduction)
+func Foldl(array interface{}, fn foldrFunc, accumulator interface{}) interface{} {
+	val := reflect.ValueOf(array)
+	var result = accumulator
+	for i := 0; i < val.Len(); i++ {
+		result = fn(val.Index(i).Interface(), result)
+	}
+	return result
+}
