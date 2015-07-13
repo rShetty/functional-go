@@ -1,5 +1,8 @@
 ## Functional Programming Constructs in Golang
 
+These functions where coded to understand the difficulty of implementing these functions in golang. 
+I do not recommend you use it. A simple for loop will do and work in most of the cases.
+
 ### FUNCTIONS
 
 ```go
