@@ -2,6 +2,7 @@ package functional
 
 import "reflect"
 
+// Definition of Map function
 type mapFunc func(interface{}) interface{}
 
 // Map maps the function onto the array
@@ -14,6 +15,7 @@ func Map(array interface{}, fn mapFunc) []interface{} {
 	return outputArray
 }
 
+// Definition of Filter function
 type filterFunc func(interface{}) bool
 
 // Filter filters the array based on the predicate
@@ -28,10 +30,11 @@ func Filter(array interface{}, fn filterFunc) []interface{} {
 	return outputArray
 }
 
-type foldrFunc func(interface{}, interface{}) interface{}
+// Definition of Foldl function
+type foldlFunc func(interface{}, interface{}) interface{}
 
 // Folds left the array values (reduction) based on the function
-func Foldl(array interface{}, fn foldrFunc, accumulator interface{}) interface{} {
+func Foldl(array interface{}, fn foldlFunc, accumulator interface{}) interface{} {
 	val := reflect.ValueOf(array)
 	var result = accumulator
 	for i := 0; i < val.Len(); i++ {
