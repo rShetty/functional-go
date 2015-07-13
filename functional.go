@@ -4,7 +4,7 @@ import "reflect"
 
 type mapFunc func(interface{}) interface{}
 
-// Map takes array and a function
+// Map maps the function onto the array
 func Map(array interface{}, fn mapFunc) []interface{} {
 	val := reflect.ValueOf(array)
 	outputArray := make([]interface{}, val.Len())
@@ -30,7 +30,7 @@ func Filter(array interface{}, fn filterFunc) []interface{} {
 
 type foldrFunc func(interface{}, interface{}) interface{}
 
-// Fold left the array values (reduction)
+// Folds left the array values (reduction) based on the function
 func Foldl(array interface{}, fn foldrFunc, accumulator interface{}) interface{} {
 	val := reflect.ValueOf(array)
 	var result = accumulator
