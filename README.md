@@ -12,7 +12,7 @@ I do not recommend you use it. A simple for loop will do and work in most of the
 // Definition of Filter function
 type filterFunc func(interface{}) bool
 
-func Filter(array interface{}, fn filterFunc) []interface{}
+func Filter(fn filterFunc, array interface{}) []interface{}
     Filter filters the array based on the predicate
 ```
 
@@ -21,7 +21,7 @@ func Filter(array interface{}, fn filterFunc) []interface{}
 // Definition of Foldl function
 type foldlFunc func(interface{}, interface{}) interface{}
 
-func Foldl(array interface{}, fn foldrFunc, accumulator interface{}) interface{}
+func Foldl(fn foldrFunc, array interface{}, accumulator interface{}) interface{}
     Folds left the array values (reduction) based on the function
 ```
 
@@ -30,7 +30,7 @@ func Foldl(array interface{}, fn foldrFunc, accumulator interface{}) interface{}
 // Definition of Map function
 type mapFunc func(interface{}) interface{}
 
-func Map(array interface{}, fn mapFunc) []interface{}
+func Map(fn mapFunc, array interface{}) []interface{}
     Map maps the function onto the array
 ```
 

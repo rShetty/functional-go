@@ -10,7 +10,7 @@ func TestMap(t *testing.T) {
 	}
 
 	expected := []int{1, 4, 9}
-	actual := Map(inputList, square)
+	actual := Map(square, inputList)
 
 	for i, e := range expected {
 		if e != actual[i] {
@@ -27,7 +27,7 @@ func TestFilter(t *testing.T) {
 	}
 
 	expected := []int{2}
-	actual := Filter(inputList, modulotwo)
+	actual := Filter(modulotwo, inputList)
 
 	for i, e := range expected {
 		if e != actual[i] {
@@ -45,7 +45,7 @@ func TestFoldl(t *testing.T) {
 
 	expected := 6
 	accumulator := 0
-	actual := Foldl(inputList, funcFoldl, accumulator)
+	actual := Foldl(funcFoldl, inputList, accumulator)
 
 	if expected != actual {
 		t.Errorf("expected %v != actual %v", expected, actual)
